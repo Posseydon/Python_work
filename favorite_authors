@@ -1,1 +1,24 @@
+import requests
+
+beatles = "http://files.school-collection.edu.ru/dlrstore/30538338-c805-4069-a8ea-a8b8002117ec/textYesterday.htm"
+
+
+def poem(url):
+    response = requests.get(url)
+    with open("/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/beatles.txt", 'w') as _file:
+        _file.write(response.text.encode("utf-8"))
+
+
+
+
+
+def main():
+    poem(beatles)
+if __name__ == '__main__':
+    main()
+
+#Дописати функцію так щоб проходило по кількох посиланнях і записувало їх
+#Прочитати як пропарсити HTML код і витягнути тільки потрібний текст.
+#Проенкодити щоб читало кирилицю
+print(poem(beatles))
 
