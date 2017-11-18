@@ -1,24 +1,20 @@
 import requests
 
-beatles = "http://files.school-collection.edu.ru/dlrstore/30538338-c805-4069-a8ea-a8b8002117ec/textYesterday.htm"
+conan = ["http://www.lib.ru/GOWARD/conan.txt", "http://www.lib.ru/GOWARD/almarik.txt",
+         "http://www.lib.ru/GOWARD/mechi.txt", "http://www.lib.ru/GOWARD/roof.txt"]
 
 
 def poem(url):
-    response = requests.get(url)
-    with open("/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/beatles.txt", 'w') as _file:
-        _file.write(response.text.encode("utf-8"))
+    for adress in conan:
+        response = requests.get(url)
+        with open(("/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/{}").format(conan), "w") as _file:
+                   _file.write(str(response.text.encode("utf-8")))
 
 
 
 
 
 def main():
-    poem(beatles)
+    poem(conan)
 if __name__ == '__main__':
     main()
-
-#Дописати функцію так щоб проходило по кількох посиланнях і записувало їх
-#Прочитати як пропарсити HTML код і витягнути тільки потрібний текст.
-#Проенкодити щоб читало кирилицю
-print(poem(beatles))
-
