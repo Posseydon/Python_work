@@ -1,13 +1,15 @@
 import requests
 
-conan = ["http://www.lib.ru/GOWARD/conan.txt", "http://www.lib.ru/GOWARD/almarik.txt",
-         "http://www.lib.ru/GOWARD/mechi.txt", "http://www.lib.ru/GOWARD/roof.txt"]
 
 
-def poem(url):
-    for adress in conan:
-        response = requests.get(url)
-        with open(("/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/{}").format(conan), "w") as _file:
+
+def poem():
+    addreses = ["http://gutenberg.net.au/ebooks06/0600851.txt", "http://gutenberg.net.au/ebooks06/0600861.txt",
+             "http://gutenberg.net.au/ebooks06/0600841.txt", "http://gutenberg.net.au/ebooks06/0600871.txt"]
+    for adress in addreses:
+        response = requests.get(adress)
+        filename = adress.split('/')[-1]
+        with open(("/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/{}").format(filename), "w") as _file:
                    _file.write(str(response.text.encode("utf-8")))
 
 
@@ -18,3 +20,7 @@ def main():
     poem(conan)
 if __name__ == '__main__':
     main()
+
+#Дописати функцію так щоб проходило по кількох посиланнях і записувало їх
+#Прочитати як пропарсити HTML код і витягнути тільки потрібний текст.
+#Проенкодити щоб читало кирилицю
