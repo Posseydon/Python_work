@@ -10,7 +10,7 @@ class TextParser:
     def get_file(self):
 
         my_books = ['/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/0600841.txt',
-                    '/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/0600851.txt'
+                    '/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/0600851.txt',
                     '/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/0600861.txt',
                     '/home/posseydon/Desktop/git_tutorial/work/favorite_authors/source_code/0600871.txt']
         self.soup = []
